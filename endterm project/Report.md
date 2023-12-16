@@ -147,12 +147,5 @@ The neural networks, SVMs and other models such as RandomForests and XGboost(ens
 
 We would prefer using the latter ones as the training time required to do them is much lesser than the former(neural networks).
 
-The neural network models and SVMs took around 3-4 hours to train and run, but the accuracy had no better results than RandomForests/XGboost.
-
-
-
-
-
-
-
-
+The SVMs took around 3-4 hours to train and run, but the accuracy had no better results than RandomForests/XGboost.
+Even the Neural Networks took longer (definitely not as long as SVM), but gave the same results.
