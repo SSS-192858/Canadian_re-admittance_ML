@@ -10,7 +10,7 @@
 
 This report contains the development of a hospital readmission prediction model using SVMs and neural network (implemented in PyTorch). The goal is to predict whether a patient will be readmitted to the hospital based on various features related to their health and medical history.
 
-The best model that we could come up was #######. 
+The best model that we could come up was with Neural Networks(with comparision to SVMs and Neural Networks).
 
 We had used the same pre-processing as done for the previous assignment for the second part of the assignment. 
 
@@ -31,7 +31,27 @@ The feature indicates whether the drug was prescribed or there was a change in t
 
 ## SVM
 
+### Model Architecture and Hyperparatmeters
+The SVM model and it's hyperparameters is as follows:
 
+1) We have used the `rbf` kernel for our SVM and the hyperparameters such as `C`, `gamma` are required.
+2) `C` is the regularization parameter, controlling the trade-off between achieving a smooth decicion boundary and classifying training points correctly.
+3) `gamma` - This is the Kernel coefficient for `rbf` kernel, controlling the shape of the boundary.
+
+* We used Optuna to get the best hyper parameters and they are stored in the `best_params` dictionary(code below).
+
+### Model fitting
+```python
+    best_params = study.best_params
+    print("Best hyperparameters:", best_params)
+    # Train SVM using the best hyperparameters
+    best_svm = SVC(C=best_params['C'], gamma=best_params['gamma'], kernel='rbf', random_state=42)
+    best_svm.fit(X_train, y_train)
+
+```
+
+### Accuracy - 
+The best accuracy we got with the `rbf` kernel and the hyper-parameters that we got is 0.652.
 
 
 
@@ -143,7 +163,7 @@ The best accuracy with tuned hyper-parameters we got was: 0.7111173498034812
 
 ## Conclusion 
 
-The neural networks, SVMs and other models such as RandomForests and XGboost(ensemble methods) give very similar accuracy for this dataset.
+The neural networks and other models such as RandomForests and XGboost(ensemble methods) give very similar accuracy for this dataset.
 
 We would prefer using the latter ones as the training time required to do them is much lesser than the former(neural networks).
 
