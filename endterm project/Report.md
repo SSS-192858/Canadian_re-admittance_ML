@@ -161,6 +161,28 @@ The following hyperparameters are optimized:
 The best accuracy with tuned hyper-parameters we got was: 0.7111173498034812
 
 
+
+
+### Model fitting for Ensemble Methods
+
+We tried various ML models possible for this task for eg. Logistic Regression, Naive-Bayes, Gaussian, Random-Forests, Decision-Trees, Gradient-Boosting, XGBoost etc. The best one we got was with Gradient Boosting and the accuracy score was coming around to be around 0.712029. The accuracy score for each of the ML Model is listed in the table below.
+
+| Model | CV Score |
+| ----- | -------- |
+| Logistic Regression | 0.6647248736664795 | 
+| Gaussian Naive Bayes | 0.16282987085906794 | 
+| Decision Tree | 0.6530039303761932 |
+| Random Forest | 0.7114682762492981 |
+| XGBoost (Gradient Boosting) | 0.7120297585626053 | 
+
+The hyper parameters for the Random Forest and Gradient Boosting Classifiers were determined using optuna. We ran nearly 15 instances of each, using a range of hyper parameter values, and then selected the ones which gave best results.
+
+Since the cross-validation accuracy scores for both the classifiers were very similar, we submitted both on Kaggle after taking predictions on the test data.
+
+The RF classifier gave score of 0.717, while the Gradient Boosting (xgboost) classifier gave a prediction accuracy score of 0.72. Hence we decided to use that as the final submisison on kaggle.
+
+
+
 ## Conclusion 
 
 The neural networks and other models such as RandomForests and XGboost(ensemble methods) give very similar accuracy for this dataset.
